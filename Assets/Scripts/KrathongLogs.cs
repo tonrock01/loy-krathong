@@ -6,10 +6,11 @@ using Newtonsoft.Json;
 public class KrathongLogs : MonoBehaviour
 {
     public List<KrathongLog> _krathongLog = new List<KrathongLog>();
+    private string url = "http://103.91.190.179/test_krathong/krathong_logs/";
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GetKrathongLogs("http://103.91.190.179/test_krathong/krathong_logs/"));
+        StartCoroutine(GetKrathongLogs(url));
     }
 
     // Update is called once per frame
