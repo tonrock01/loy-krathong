@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb5ccf688234734e87a8f753543df0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userId: 100837165998706
+  userId: 2277844679056340
   _userAccount:
     userid: 
     fbname: 
@@ -1743,7 +1743,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132301684}
         m_TargetAssemblyTypeName: SubmitKrathong, Assembly-CSharp
-        m_MethodName: SubmitData
+        m_MethodName: SureToPay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1873,7 +1873,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 775462372}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 132301684}
+        m_TargetAssemblyTypeName: SubmitKrathong, Assembly-CSharp
+        m_MethodName: SubmitData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 926589923}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &775462372
 MonoBehaviour:
   m_ObjectHideFlags: 0

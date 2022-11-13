@@ -60,6 +60,7 @@ public class SubmitKrathong : MonoBehaviour
                 Debug.Log("Form upload complete!");
                 Debug.Log(www.downloadHandler.text);
                 _spawnkrathong.UserSpawnKrathong();
+                wishbox.text = "";
             }
         }
     }
