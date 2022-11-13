@@ -11,12 +11,13 @@ public class SubmitKrathong : MonoBehaviour
     private string _userID;
     [SerializeField]
     private string _krathongId;
-    InputField wishbox;
+    public InputField wishbox;
+    public Button loykrathongBT;
     // Start is called before the first frame update
     void Start()
     {
-        // wishbox = GameObject.Find("WishBox").GetComponent<InputField>();
-        // GameObject.Find("LoyKrathongButton").GetComponent<Button>().onClick.AddListener(SubmitData);
+        //wishbox = GameObject.Find("WishBox").GetComponent<InputField>();
+        //loykrathongBT.onClick.AddListener(SubmitData);
     }
 
     // Update is called once per frame
