@@ -8,14 +8,16 @@ public class SubmitKrathong : MonoBehaviour
 {
     private string url = "http://103.91.190.179/test_krathong/krathong_submit/";
     [SerializeField]
-    private string _userID;
+    public string _userID;
     [SerializeField]
     public string _krathongId;
     public InputField wishbox;
     public Button loykrathongBT;
+    SpawnKrathong _spawnkrathong;
     // Start is called before the first frame update
     void Start()
     {
+        _spawnkrathong = GetComponent<SpawnKrathong>();
         //wishbox = GameObject.Find("WishBox").GetComponent<InputField>();
         //loykrathongBT.onClick.AddListener(SubmitData);
     }
@@ -46,6 +48,7 @@ public class SubmitKrathong : MonoBehaviour
             {
                 Debug.Log("Form upload complete!");
                 Debug.Log(www.downloadHandler.text);
+                _spawnkrathong.UserSpawnKrathong();
             }
         }
     }

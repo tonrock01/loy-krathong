@@ -9,6 +9,7 @@ public class SpawnKrathong : MonoBehaviour
     public GameObject krathongObject;
     public GameObject[] spawnpoints;
     KrathongLogs _krathonglogs;
+    SubmitKrathong _submitkrathong;
     public float delayDeploy;
     public int CountKrathong;
     public float delayFetch;
@@ -16,6 +17,7 @@ public class SpawnKrathong : MonoBehaviour
     void Start()
     {
         _krathonglogs = GetComponent<KrathongLogs>();
+        _submitkrathong = GetComponent<SubmitKrathong>();
         SpawnKrathongFuction(delayDeploy);
         // for (int i = 0; i < _krathonglogs._krathongLog.Count; i++)
         // {
@@ -76,4 +78,42 @@ public class SpawnKrathong : MonoBehaviour
         SpawnKrathongFuction(delayDeploy);
 
     }
+
+    public void UserSpawnKrathong()
+    {
+        int sp = Random.Range(0, 3);
+        GameObject userkrathongObj = GameObject.Instantiate(krathongObject, spawnpoints[sp].transform.position, Quaternion.identity);
+        if (_submitkrathong._krathongId == "1")
+        {
+            userkrathongObj.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Krathong/" + "1");
+        }
+        if (_submitkrathong._krathongId == "2")
+        {
+            userkrathongObj.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Krathong/" + "2");
+        }
+        if (_submitkrathong._krathongId == "3")
+        {
+            userkrathongObj.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Krathong/" + "3");
+        }
+        if (_submitkrathong._krathongId == "4")
+        {
+            userkrathongObj.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Krathong/" + "4");
+        }
+        if (_submitkrathong._krathongId == "5")
+        {
+            userkrathongObj.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Krathong/" + "5");
+        }
+        if (_submitkrathong._krathongId == "6")
+        {
+            userkrathongObj.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Krathong/" + "6");
+        }
+        if (_submitkrathong._krathongId == "7")
+        {
+            userkrathongObj.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Krathong/" + "7");
+        }
+        userkrathongObj.name = _submitkrathong._userID;
+        userkrathongObj.GetComponentInChildren<Text>().text = _submitkrathong.wishbox.text;
+        userkrathongObj.GetComponentInChildren<TMP_Text>().text = _submitkrathong._userID;
+    }
+
 }
