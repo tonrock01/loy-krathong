@@ -37,7 +37,7 @@ public class GetUserAccount : MonoBehaviour
             var jsondata = www.downloadHandler.text;
             _userAccount = JsonConvert.DeserializeObject<UserAccount>(jsondata);
             Debug.Log("Form upload complete!");
-            Debug.Log(www.downloadHandler.text);
+            //Debug.Log(www.downloadHandler.text);
         }
     }
 }

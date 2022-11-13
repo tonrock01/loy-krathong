@@ -10,7 +10,7 @@ public class SubmitKrathong : MonoBehaviour
     [SerializeField]
     private string _userID;
     [SerializeField]
-    private string _krathongId;
+    public string _krathongId;
     public InputField wishbox;
     public Button loykrathongBT;
     // Start is called before the first frame update
