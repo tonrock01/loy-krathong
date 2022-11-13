@@ -16,7 +16,7 @@ public class KrathongList : MonoBehaviour
 
     void Start()
     {
-        // StartCoroutine(GetKrathongList("http://103.91.190.179/test_krathong/krathong_list/"));
+        
     }
 
     // Update is called once per frame
@@ -41,10 +41,9 @@ public class KrathongList : MonoBehaviour
                     Debug.LogError(": HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-                    // Debug.Log(":\nReceived: " + webRequest.downloadHandler.text);
                     var jsonResponse = webRequest.downloadHandler.text;
                     var result = JsonConvert.DeserializeObject<List<Krathong>>(jsonResponse);
-                    for (int i = 0; i < result.Count; i++)//loop Count data from Factory.Json
+                    for (int i = 0; i < result.Count; i++)
                     {
                         _krathongList.Add(new Krathong(result[i].krathong_id.ToString(), result[i].price_type.ToString(), result[i].price.ToString(), result[i].max_floating.ToString()));
                     }

@@ -19,25 +19,6 @@ public class SpawnKrathong : MonoBehaviour
         _krathonglogs = GetComponent<KrathongLogs>();
         _submitkrathong = GetComponent<SubmitKrathong>();
         SpawnKrathongFuction(delayDeploy);
-        // for (int i = 0; i < _krathonglogs._krathongLog.Count; i++)
-        // {
-        //     int sp = Random.Range(0, 3);
-        //     GameObject krathongObj = GameObject.Instantiate(krathongObject, spawnpoints[sp].transform.position, Quaternion.identity);
-        //     krathongObj.GetComponent<SpriteRenderer>().sprite = _krathonglogs._krathongLog[i].sprite;
-        //     krathongObj.name = _krathonglogs._krathongLog[i].userid;
-        //     krathongObj.GetComponentInChildren<Text>().text = _krathonglogs._krathongLog[i].wish;
-        //     krathongObj.GetComponentInChildren<TMP_Text>().text = _krathonglogs._krathongLog[i].fbname;
-        // }
-        // if (countkra < _krathonglogs._krathongLog.Count)
-        // {
-        //     int sp = Random.Range(0, 3);
-        //     GameObject krathongObj = GameObject.Instantiate(krathongObject, spawnpoints[sp].transform.position, Quaternion.identity);
-        //     krathongObj.GetComponent<SpriteRenderer>().sprite = _krathonglogs._krathongLog[countkra].sprite;
-        //     krathongObj.name = _krathonglogs._krathongLog[countkra].userid;
-        //     krathongObj.GetComponentInChildren<Text>().text = _krathonglogs._krathongLog[countkra].wish;
-        //     krathongObj.GetComponentInChildren<TMP_Text>().text = _krathonglogs._krathongLog[countkra].fbname;
-        //     countkra++;
-        // }
     }
 
     // Update is called once per frame

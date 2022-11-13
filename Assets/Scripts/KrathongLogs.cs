@@ -16,7 +16,7 @@ public class KrathongLogs : MonoBehaviour
 
     void Start()
     {
-        // StartCoroutine(GetKrathongLogs(url));
+        
     }
 
     // Update is called once per frame
@@ -41,10 +41,9 @@ public class KrathongLogs : MonoBehaviour
                     Debug.LogError(": HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-                    // Debug.Log(":\nReceived: " + webRequest.downloadHandler.text);
                     var jsonResponse = webRequest.downloadHandler.text;
                     var result = JsonConvert.DeserializeObject<List<KrathongLog>>(jsonResponse);
-                    for (int i = 0; i < result.Count; i++)//loop Count data from Factory.Json
+                    for (int i = 0; i < result.Count; i++)
                     {
                         _krathongLog.Add(new KrathongLog(result[i].userid.ToString(), result[i].fbname.ToString(), result[i].wish.ToString(), result[i].krathong_id.ToString()));
                     }
@@ -53,7 +52,7 @@ public class KrathongLogs : MonoBehaviour
         }
     }
 
-    public KrathongLog FetchKrathongByID(string krathong_id)// Fetch item by ID
+    public KrathongLog FetchKrathongByID(string krathong_id)
     {
         for (int i = 0; i < _krathongLog.Count; i++)
         {
@@ -74,7 +73,6 @@ public class KrathongLogs : MonoBehaviour
 }
 
 [System.Serializable]
-// Root myDeserializedClass = JsonConvert.DeserializeObject<List<Root>>(myJsonResponse);
 public class KrathongLog
 {
     [JsonConstructor]

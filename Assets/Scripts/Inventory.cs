@@ -27,27 +27,9 @@ public class Inventory : MonoBehaviour
             slots[i].transform.SetParent(slotPanel.transform);
             AddItem(i + 1);
         }
-        // AddItem(1);
-        // AddItem(2);
-        // AddItem(3);
-        // AddItem(4);
-        // AddItem(5);
 
     }
 
-    // private void OnEnable()
-    // {
-    //     krathongdatabase = GetComponent<KrathongList>();
-    //     inventoryPanel = GameObject.Find("Inventory Panel");
-    //     slotPanel = inventoryPanel.transform.Find("Slot Panel").gameObject;
-    //     for (int i = 0; i < krathongdatabase._krathongList.Count; i++)
-    //     {
-    //         items.Add(new Krathong());
-    //         slots.Add(Instantiate(inventorySlot));
-    //         slots[i].transform.SetParent(slotPanel.transform);
-    //         AddItem(i + 1);
-    //     }
-    // }
     public void AddItem(int id)
     {
         Krathong itemToAdd = krathongdatabase.FetchKrathongByID(id.ToString());
