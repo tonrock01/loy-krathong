@@ -8,9 +8,15 @@ public class KrathongLogs : MonoBehaviour
     public List<KrathongLog> _krathongLog = new List<KrathongLog>();
     private string url = "http://103.91.190.179/test_krathong/krathong_logs/";
     // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         StartCoroutine(GetKrathongLogs(url));
+    }
+
+    void Start()
+    {
+        // StartCoroutine(GetKrathongLogs(url));
     }
 
     // Update is called once per frame
@@ -46,6 +52,25 @@ public class KrathongLogs : MonoBehaviour
             }
         }
     }
+
+    public KrathongLog FetchKrathongByID(string krathong_id)// Fetch item by ID
+    {
+        for (int i = 0; i < _krathongLog.Count; i++)
+        {
+            if (_krathongLog[i].krathong_id == krathong_id)
+            {
+                return _krathongLog[i];
+            }
+        }
+        return null;
+    }
+
+    public void FetchKrathongLogs()
+    {
+        _krathongLog.Clear();
+        Debug.Log("Fetch Logs");
+        StartCoroutine(GetKrathongLogs(url));
+    }
 }
 
 [System.Serializable]
@@ -64,11 +89,18 @@ public class KrathongLog
         this.fbname = fbname;
         this.wish = wish;
         this.krathong_id = krathong_id;
+        this.sprite = Resources.Load<Sprite>("Krathong/" + krathong_id);
     }
 
     public string userid;
     public string fbname;
     public string wish;
     public string krathong_id;
+    public Sprite sprite;
+
+    public KrathongLog()
+    {
+        this.krathong_id = "-1";
+    }
 }
 

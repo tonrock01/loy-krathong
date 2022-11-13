@@ -91,7 +91,7 @@ public class Krathong
     public string max_floating;
     public Sprite sprite;
 
-    public Krathong()//its mean is empty items
+    public Krathong()
     {
         this.krathong_id = "-1";
     }
