@@ -33,12 +33,14 @@ public class SpawnKrathong : MonoBehaviour
     void SpawnKrathongFuction(float delayTime)
     {
         StartCoroutine(Spawn(delayTime));
+        Debug.Log("Start Spawn");
     }
 
     IEnumerator Spawn(float delayTime)
     {
         for (CountKrathong = 0; CountKrathong < _krathonglogs._krathongLog.Count; CountKrathong++)
         {
+            Debug.Log("Spawn Krathong" + (CountKrathong + 1));
             int sp = Random.Range(0, 3);
             yield return new WaitForSeconds(delayTime);
             GameObject krathongObj = GameObject.Instantiate(krathongObject, spawnpoints[sp].transform.position, Quaternion.identity);
@@ -47,13 +49,15 @@ public class SpawnKrathong : MonoBehaviour
             krathongObj.GetComponentInChildren<Text>().text = _krathonglogs._krathongLog[CountKrathong].wish;
             krathongObj.GetComponentInChildren<TMP_Text>().text = _krathonglogs._krathongLog[CountKrathong].fbname;
         }
-        CountKrathong = -1;
+        if (CountKrathong == 10)
+        {
+            CountKrathong = -1;
+        }
     }
 
     IEnumerator FetchDelay(float delayFetchTime)
     {
         CountKrathong = 0;
-        Debug.Log("enter");
         _krathonglogs.FetchKrathongLogs();
         yield return new WaitForSeconds(delayFetchTime);
         SpawnKrathongFuction(delayDeploy);

@@ -20,14 +20,14 @@ public class Inventory : MonoBehaviour
         krathongdatabase = GetComponent<KrathongList>();
         inventoryPanel = GameObject.Find("Inventory Panel");
         slotPanel = inventoryPanel.transform.Find("Slot Panel").gameObject;
-        for (int i = 0; i < krathongdatabase._krathongList.Count; i++)
+    }
+    private void Update()
+    {
+        if (slots.Count == 0)
         {
-            items.Add(new Krathong());
-            slots.Add(Instantiate(inventorySlot));
-            slots[i].transform.SetParent(slotPanel.transform);
-            AddItem(i + 1);
+            RefreshSlot();
+            Debug.Log("Fecth slots");
         }
-
     }
 
     public void AddItem(int id)
@@ -39,8 +39,8 @@ public class Inventory : MonoBehaviour
             {
                 items[i] = itemToAdd;
                 GameObject itemObj = Instantiate(inventoryItem);
-                // itemObj.GetComponent<ItemData>().item = itemToAdd;
                 itemObj.transform.SetParent(slots[i].transform);
+                itemObj.transform.localScale = new Vector3(1, 1, 1);
                 itemObj.transform.position = Vector2.zero;
                 itemObj.GetComponent<Image>().sprite = itemToAdd.sprite;
                 itemObj.name = itemToAdd.krathong_id;
@@ -50,7 +50,7 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-    
+
     public void RefreshSlot()
     {
         for (int i = 0; i < krathongdatabase._krathongList.Count; i++)
@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
             items.Add(new Krathong());
             slots.Add(Instantiate(inventorySlot));
             slots[i].transform.SetParent(slotPanel.transform);
-            Debug.Log(i);
+            slots[i].transform.localScale = new Vector3(1, 1, 1);
             AddItem(i + 1);
         }
     }
